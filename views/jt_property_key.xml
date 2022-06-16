@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="jt_property_key_view_form_website" model="ir.ui.view">
+        <field name="model">jt.property.key</field>
+        <field name="inherit_id" ref="jt_product_properties.jt_property_key_view_form"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="website" />
+            </field>            
+        </field>
+    </record>
+
+    <record id="jt_property_key_view_tree_website" model="ir.ui.view">
+        <field name="model">jt.property.key</field>
+        <field name="inherit_id" ref="jt_product_properties.jt_property_key_view_tree" />
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="website" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

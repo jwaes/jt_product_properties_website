@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_sale_product" inherit_id="website_sale.product" priority="5">
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="after">
+            <div class="product_properties o_not_editable"/>
+        </xpath>
+    </template>    
+
+
+    <template id="website_sale_product_properties" name="Shop product properties">
+        <ul>
+            <t t-foreach="product_variant.website_kvs" t-as="kv">
+                <li t-if="kv.property_type == 'free_text'">
+                    <span t-field="kv.key_id.name"/>: <span t-field="kv.text"/>
+                </li>
+                <li t-elif="kv.property_type == 'selection'">
+                    <span t-field="kv.key_id.name"/>: <span t-field="kv.value_id.name"/>
+                </li>                        
+            </t>
+        </ul>   
+    </template>
+
+</odoo>

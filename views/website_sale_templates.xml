@@ -3,7 +3,7 @@
 
     <template id="website_sale_product" inherit_id="website_sale.product" priority="5">
         <xpath expr="//div[@id='add_to_cart_wrap']" position="after">            
-            <section class="s_faq_collapse pt32 pb32">
+            <section class="s_faq_collapse pt32 pb32 o_not_editable">
                 <t t-set="uniq" t-value="datetime.datetime.now().microsecond"/>
                 <div class="container">
                     <div id="myCollapse" class="accordion" role="tablist">

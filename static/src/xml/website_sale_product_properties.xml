@@ -2,12 +2,7 @@
 <templates>
     <t t-name="jt_product_properties_website.product_properties">
         <div id="product_properties">
-            <t t-if="product_type == 'product'">
-                <t t-esc="product_properties"/>
-            </t>
-            <t t-else="">
-                not a product
-            </t>
+            <t t-esc="product_properties"/>
         </div>
     </t>
 </templates>

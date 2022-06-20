@@ -46,16 +46,7 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
         return;
     }
 
-    const $addQtyInput = $parent.find('input[name="add_qty"]');
-    let qty = $addQtyInput.val();
-
-    console.debug("here comes combination")
-    console.debug(combination)
-
     loadXml().then(function (result) {
-        $('.oe_website_sale')
-            .find('.availability_message_' + combination.product_template)
-            .remove();
         combination.product_properties = Markup(combination.product_properties);
         const $message = $(QWeb.render(
             'jt_product_properties_website.product_properties',

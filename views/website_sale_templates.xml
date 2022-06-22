@@ -3,12 +3,12 @@
 
     <template id="website_sale_product" inherit_id="website_sale.product" priority="5">
         <xpath expr="//div[@id='add_to_cart_wrap']" position="after">            
-            <section class="s_faq_collapse pt32 pb32 o_not_editable">
+            <section class="s_faq_collapse s_faq_collapse_light pt32 pb32 o_not_editable">
                 <t t-set="uniq" t-value="datetime.datetime.now().microsecond"/>
                 <div class="container">
                     <div id="myCollapse" class="accordion" role="tablist">
                         <div class="card bg-white" data-name="Item">
-                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_1" role="tab" data-toggle="collapse" aria-expanded="true" class="card-header">Details</a>
+                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_1" role="tab" data-toggle="collapse" aria-expanded="true" class="card-header s_faq_collapse_right_icon">Details</a>
                             <div t-attf-id="myCollapseTab{{uniq}}_1" class="collapse show" data-parent="#myCollapse" role="tabpanel">
                                 <div class="card-body">                                   
                                     <div class="product_properties o_not_editable"/>
@@ -16,19 +16,18 @@
                             </div>
                         </div>
                         <div class="card bg-white" data-name="Item">
-                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_2" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header">Links to other Websites</a>
+                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_2" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header s_faq_collapse_right_icon">Sed rhoncus</a>
                             <div t-attf-id="myCollapseTab{{uniq}}_2" class="collapse" data-parent="#myCollapse" role="tabpanel">
                                 <div class="card-body">
-                                    <p class="card-text">Although this Website may be linked to other websites, we are not, directly or indirectly, implying any approval, association, sponsorship, endorsement, or affiliation with any linked website, unless specifically stated herein.</p>
-                                    <p class="card-text">You should carefully review the legal statements and other conditions of use of any website which you access through a link from this Website. Your linking to any other off-site pages or other websites is at your own risk.</p>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tortor risus, rutrum non est non, pellentesque suscipit tellus. Sed consectetur purus et libero sagittis, a aliquet nibh pulvinar. Fusce et molestie dui. Nulla hendrerit eu augue nec convallis. </p>
                                 </div>
                             </div>
                         </div>
                         <div class="card bg-white" data-name="Item">
-                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_3" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header">Use of Cookies</a>
+                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_3" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header s_faq_collapse_right_icon">Donec eget magna</a>
                             <div t-attf-id="myCollapseTab{{uniq}}_3" class="collapse" data-parent="#myCollapse" role="tabpanel">
                                 <div class="card-body">
-                                    <p class="card-text">Website may use cookies to personalize and facilitate maximum navigation of the User by this site. The User may configure his / her browser to notify and reject the installation of the cookies sent by us.</p>
+                                    <p class="card-text">Pellentesque nec ipsum et magna mollis aliquet. Integer quis ex neque. Duis convallis accumsan ligula vel sollicitudin. Sed condimentum metus ante, sed pulvinar risus sagittis in..</p>
                                 </div>
                             </div>
                         </div>

@@ -43,10 +43,22 @@
                 <li> ID: <span t-field="product_variant.default_code"/></li>
             <t t-foreach="product_variant.website_kvs" t-as="kv">
                 <li t-if="kv.property_type == 'free_text'">
-                    <span t-field="kv.key_id.name"/>: <span t-field="kv.text"/>
+                    <span t-field="kv.key_id.name"/>: 
+                    <t t-if="kv.url">
+                        <a t-att-href="kv.url"><span t-field="kv.text"/></a>
+                    </t>
+                    <t t-else="">
+                        <span t-field="kv.text"/>
+                    </t>
                 </li>
                 <li t-elif="kv.property_type == 'selection'">
-                    <span t-field="kv.key_id.name"/>: <span t-field="kv.value_id.name"/>
+                    <span t-field="kv.key_id.name"/>: 
+                    <t t-if="kv.url">
+                        <a t-att-href="kv.url"><span t-field="kv.value_id.name"/></a>
+                    </t>
+                    <t t-else="">
+                        <span t-field="kv.value_id.name"/>
+                    </t>
                 </li>                        
             </t>
         </ul>

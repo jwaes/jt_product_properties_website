@@ -8,3 +8,4 @@ class PropertyKey(models.Model):
     _inherit = 'jt.property.key'
 
     website = fields.Boolean(string='Website', default=False, help="Show this property on the website ?")
+    

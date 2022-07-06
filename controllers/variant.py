@@ -9,10 +9,13 @@ class WebsiteSaleStockPropertiesVariantController(WebsiteSaleVariantController):
         kw['context'].update(website_sale_product_properties=True)
         combination = super().get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
 
+        product = request.env['product.product'].browse(combination['product_id']);
+
         pp_view = request.env['ir.ui.view']._render_template('jt_product_properties_website.website_sale_product_properties', values={
-            'product_variant': request.env['product.product'].browse(combination['product_id']),
+            'product_variant': product,
         })
 
         combination['product_properties'] = pp_view
+        combination['short_name'] = product.short_name
 
         return combination

@@ -54,6 +54,9 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
         ));
         $('div.product_properties').html($message);
     });
+
+    $('#product_details h1').text(combination.short_name);
+
 };
 
 publicWidget.registry.WebsiteSale.include({
@@ -69,13 +72,13 @@ publicWidget.registry.WebsiteSale.include({
      * Recomputes the combination after adding a product to the cart
      * @override
      */
-    _onClickAdd(ev) {
-        return this._super.apply(this, arguments).then(() => {
-            if ($('div.availability_messages').length) {
-                this._getCombinationInfo(ev);
-            }
-        });
-    }
+    // _onClickAdd(ev) {
+    //     return this._super.apply(this, arguments).then(() => {
+    //         if ($('div.availability_messages').length) {
+    //             this._getCombinationInfo(ev);
+    //         }
+    //     });
+    // }
 });
 
 return VariantMixin;

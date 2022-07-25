@@ -3,7 +3,7 @@
 
     <template id="website_sale_product" inherit_id="website_sale.product" priority="5">
         <xpath expr="//div[@id='add_to_cart_wrap']" position="after">            
-            <section class="s_faq_collapse s_faq_collapse_light pt32 pb32 o_not_editable">
+            <section class="s_faq_collapse s_faq_collapse_light pt-2 pb32 o_not_editable">
                 <t t-set="uniq" t-value="datetime.datetime.now().microsecond"/>
                 <div class="container">
                     <div id="myCollapse" class="accordion" role="tablist">
@@ -15,6 +15,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="card bg-white" data-name="Item">
                             <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_2" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header s_faq_collapse_right_icon">Sed rhoncus</a>
                             <div t-attf-id="myCollapseTab{{uniq}}_2" class="collapse" data-parent="#myCollapse" role="tabpanel">
@@ -31,6 +32,7 @@
                                 </div>
                             </div>
                         </div>
+                    -->
                     </div>
                 </div>
             </section>

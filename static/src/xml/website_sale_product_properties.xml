@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<templates>
-    <t t-name="jt_product_properties_website.product_properties">
-        <div id="product_properties">
-            <t t-esc="product_properties"/>
-        </div>
-    </t>
-</templates>

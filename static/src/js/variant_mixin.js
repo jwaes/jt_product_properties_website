@@ -1,17 +1,9 @@
 odoo.define('jt_product_properties_website.VariantMixin', function (require) {
     'use strict';
-
     
 const {Markup} = require('web.utils');
 var VariantMixin = require('sale.VariantMixin');
 var publicWidget = require('web.public.widget');
-var ajax = require('web.ajax');
-var core = require('web.core');
-var QWeb = core.qweb;
-
-const loadXml = async () => {
-    return ajax.loadXML('/jt_product_properties_website/static/src/xml/website_sale_product_properties.xml', QWeb);
-};
 
 require('website_sale.website_sale');
 
@@ -46,15 +38,7 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
         return;
     }
 
-    loadXml().then(function (result) {
-        combination.product_properties = Markup(combination.product_properties);
-        const $message = $(QWeb.render(
-            'jt_product_properties_website.product_properties',
-            combination
-        ));
-        $('div.product_properties').html($message);
-    });
-
+    $('div.product_properties').html(combination.product_properties);
     $('#product_details h1').text(combination.short_name);
 
 };

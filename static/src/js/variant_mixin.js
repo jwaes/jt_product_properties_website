@@ -25,6 +25,7 @@ require('website_sale.website_sale');
 VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, combination) {
     let product_id = 0;
     // needed for list view of variants
+    
     if ($parent.find('input.product_id:checked').length) {
         product_id = $parent.find('input.product_id:checked').val();
     } else {
@@ -35,8 +36,9 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
         combination.product_id === parseInt(product_id);
 
     if (!this.isWebsite || !isMainProduct) {
-        return;
+        // return;
     }
+    console.log("updating properties ");
 
     $('div.product_properties').html(combination.product_properties);
     $('#product_details h1').text(combination.short_name);

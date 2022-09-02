@@ -43,7 +43,7 @@
     <template id="website_sale_product_properties" name="Shop product properties">
         <ul class="pl-2 list-unstyled">
                 <li>Code: <span t-field="product_variant.default_code"/></li>
-                <li t-if="product_variant.barcode and len(product_variant.barcode) == 13">EAN: <span t-field="product_variant.barcode"/></li>
+                <li t-if="product_variant.barcode and len(product_variant.barcode) == 14">GTIN: <span t-field="product_variant.barcode"/></li>
             <t t-foreach="product_variant.website_kvs" t-as="kv">
                 <li t-if="kv.property_type == 'free_text'">
                     <span t-field="kv.key_id.name"/>: 

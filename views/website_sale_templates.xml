@@ -8,8 +8,8 @@
                 <div class="container">
                     <div id="myCollapse" class="accordion" role="tablist">
                         <div class="card bg-white" data-name="Item">
-                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_1" role="tab" data-toggle="collapse" aria-expanded="true" class="card-header s_faq_collapse_right_icon">Details</a>
-                            <div t-attf-id="myCollapseTab{{uniq}}_1" class="collapse show" data-parent="#myCollapse" role="tabpanel">
+                            <a href="#" t-attf-data-target="#myCollapseTab{{uniq}}_prop" role="tab" data-toggle="collapse" aria-expanded="true" class="card-header s_faq_collapse_right_icon">Details</a>
+                            <div t-attf-id="myCollapseTab{{uniq}}_prop" class="collapse show" data-parent="#myCollapse" role="tabpanel">
                                 <div class="card-body">                                   
                                     <div class="product_properties o_not_editable"/>
                                 </div>
@@ -41,8 +41,9 @@
     </template>    
 
     <template id="website_sale_product_properties" name="Shop product properties">
-        <ul>
-                <li> ID: <span t-field="product_variant.default_code"/></li>
+        <ul class="pl-2 list-unstyled">
+                <li>Code: <span t-field="product_variant.default_code"/></li>
+                <li t-if="product_variant.barcode and len(product_variant.barcode) == 13">EAN: <span t-field="product_variant.barcode"/></li>
             <t t-foreach="product_variant.website_kvs" t-as="kv">
                 <li t-if="kv.property_type == 'free_text'">
                     <span t-field="kv.key_id.name"/>: 

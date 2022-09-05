@@ -17,5 +17,6 @@ class WebsiteSaleStockPropertiesVariantController(WebsiteSaleVariantController):
 
         combination['product_properties'] = pp_view
         combination['short_name'] = product.short_name
+        combination['attribute_string'] = product.attribute_string
 
         return combination

@@ -1,7 +1,21 @@
-from odoo import fields, models
+import re
+from odoo import models, fields, api
+
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
+
+    attribute_string = fields.Char(compute='_compute_attribute_string', string='Attribute string')
+    
+    @api.depends('display_name')
+    def _compute_attribute_string(self):
+        for record in self:
+            result = re.search('^.*(\(.*\))$', record.display_name)
+            if result:
+                attribute_string = result.group(1)
+                record.attribute_string = attribute_string
+            else:
+                record.attribute_string = ""
 
     def _get_combination_info(self, combination=False, product_id=False, add_qty=1, pricelist=False, parent_combination=False, only_template=False):
         combination_info = super(ProductTemplate, self)._get_combination_info(

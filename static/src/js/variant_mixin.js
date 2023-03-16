@@ -7,6 +7,15 @@ var publicWidget = require('web.public.widget');
 
 require('website_sale.website_sale');
 
+console.log("loaded");
+
+
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded");
+    const $product = $('#product_detail');
+});
+
+
 /**
  * Addition to the variant_mixin._onChangeCombination
  *
@@ -51,6 +60,7 @@ publicWidget.registry.WebsiteSale.include({
      * @override
      */
     _onChangeCombination: function () {
+        console.log("variant in properties")
         this._super.apply(this, arguments);
         VariantMixin._onChangeCombinationProductProperties.apply(this, arguments);
     },

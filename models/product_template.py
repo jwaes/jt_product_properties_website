@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
     @api.depends('display_name')
     def _compute_attribute_string(self):
         for record in self:
-            result = re.search('^.*(\(.*\))$', record.display_name)
+            result = re.search(r'^.*(\(.*\))$', record.display_name)
             if result:
                 attribute_string = result.group(1)
                 record.attribute_string = attribute_string

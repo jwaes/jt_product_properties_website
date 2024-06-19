@@ -1,13 +1,13 @@
-odoo.define('jt_product_properties_website.VariantMixin', function (require) {
-    'use strict';
+// odoo.define('jt_product_properties_website.VariantMixin', function (require) {
+//     'use strict';
     
-const {Markup} = require('web.utils');
-var VariantMixin = require('sale.VariantMixin');
-var publicWidget = require('web.public.widget');
+// const {Markup} = require('web.utils');
+// var VariantMixin = require('sale.VariantMixin');
+// var publicWidget = require('web.public.widget');
 
-require('website_sale.website_sale');
+// require('website_sale.website_sale');
 
-console.log("loaded");
+import VariantMixin from "@website_sale/js/variant_mixin";
 
 
 window.addEventListener("load", (event) => {
@@ -15,6 +15,7 @@ window.addEventListener("load", (event) => {
     const $product = $('#product_detail');
 });
 
+const originalOnChangeCombination = VariantMixin._onChangeCombination;
 
 /**
  * Addition to the variant_mixin._onChangeCombination
@@ -52,31 +53,7 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
     $('div.product_properties').html(combination.product_properties);
     $('#product_details h5').text(combination.attribute_string);
 
+    originalOnChangeCombination.apply(this, [ev, $parent, combination]);
 };
 
-publicWidget.registry.WebsiteSale.include({
-    /**
-     * Adds the product properties updating to the regular _onChangeCombination method
-     * @override
-     */
-    _onChangeCombination: function () {
-        console.log("variant in properties")
-        this._super.apply(this, arguments);
-        VariantMixin._onChangeCombinationProductProperties.apply(this, arguments);
-    },
-    /**
-     * Recomputes the combination after adding a product to the cart
-     * @override
-     */
-    // _onClickAdd(ev) {
-    //     return this._super.apply(this, arguments).then(() => {
-    //         if ($('div.availability_messages').length) {
-    //             this._getCombinationInfo(ev);
-    //         }
-    //     });
-    // }
-});
-
-return VariantMixin;
-
-});
+export default VariantMixin;

@@ -4,11 +4,11 @@ from odoo.addons.website_sale.controllers.variant import WebsiteSaleVariantContr
 from odoo.tools.misc import get_lang
 
 class WebsiteSaleStockPropertiesVariantController(WebsiteSaleVariantController):
+    
     @http.route()
-    def get_combination_info_website(self, product_template_id, product_id, combination, add_qty, **kw):
-        kw['context'] = kw.get('context', {})
-        kw['context'].update(website_sale_product_properties=True)
-        combination = super().get_combination_info_website(product_template_id, product_id, combination, add_qty, **kw)
+    def get_combination_info_website(self, *args, **kwargs):
+        request.update_context(website_sale_product_properties=True)
+        combination = super().get_combination_info_website(*args, **kwargs)        
 
         product = request.env['product.product'].browse(combination['product_id']);
 

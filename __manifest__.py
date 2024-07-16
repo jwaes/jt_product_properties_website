@@ -36,6 +36,7 @@
     'assets': {
         'web.assets_frontend': [
             'jt_product_properties_website/static/src/js/**/*',
+            'jt_product_properties_website/static/src/xml/**/*',
         ],
     },    
 }

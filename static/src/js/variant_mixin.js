@@ -22,7 +22,7 @@ VariantMixin._onChangeCombinationProductProperties = function (ev, $parent, comb
     console.log("updating properties ");
 
     $('div.product_properties').html(combination.product_properties);
-    $('#product_details h5').text(combination.attribute_string);
+    $('#product_details h5:first').text(combination.attribute_string);
 
 };
 
